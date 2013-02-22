@@ -5,36 +5,20 @@
 <link href="testheader.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
-<body bgcolor="black">
-
-<style type="text/css"> 
-#centerpage {
-    position:fixed;
-    top: 50%;
-    left: 50%;
-    width:35em;
-    height:18em;
-    margin-top: auto; 
-    margin-left: -10em; 
-}
-
-</style>
-
-
-
+<body bgcolor="gray">
 
 
 <div class="wrapper">
 <div class="container"><ul class="menu" rel="sam1">
 <li class="active"><a href="index.html">Home</a></li>
-    <li><a href="about.html">About Homology</a></li>
-	<li><a href="forum.html">Homology Forum</a></li>
-	<li><a href="osteology.html">Osteology</a></li>
-	<li><a href="myology.html">Myology</a></li>
-    <li><a href="dna.html">DNA</a></li>
-    <li><a href="proteins.html">Proteins</a></li>
-    <li><a href="login.html">Login/Create Account</a></li>
-    <li><a href="contact.html">Contact Us</a></li>
+    <li><a href="about.html" target="main">About Homology</a></li>
+	<li><a href="forum.html" target="main">Homology Forum</a></li>
+	<li><a href="osteology.html" target="main">Osteology</a></li>
+	<li><a href="myology.html" target="main">Myology</a></li>
+    <li><a href="dna.html" target="main">DNA</a></li>
+    <li><a href="proteins.html" target="main">Proteins</a></li>
+    <li><a href="login.html" target="main">Login/Create Account</a></li>
+    <li><a href="contact.html" target="main">Contact Us</a></li>
     <li><a href="#">
           <input type="text" name="q" size="20" />
           <input type="submit" value="Search"/>
@@ -49,9 +33,9 @@
 <div id="centerpage">
 
 <iframe name="main" 
-	src="about.html" 
+	src="home.html" 
     iframe width="100%"
-	scrolling="no" 
+	scrolling="yes" 
 	frameborder="0">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -60,7 +44,29 @@
 
 
 
-</body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<li><a href="index.html">Developers</a></li>
+	<li><a href="#">
+          <input type="text" name="q" size="20" />
+          <input type="submit" value="Taxon Search"/>
+          <input type="hidden" name="q1" value="site:YOUR DOMAIN NAME GOES HERE"/>
+    </a>
+    <li><a href="#">
+          <input type="text" name="q" size="20" />
+          <input type="submit" value="Feature Search"/>
+          <input type="hidden" name="q1" value="site:YOUR DOMAIN NAME GOES HERE"/>
+    </a>
+    <li><a href="login.html" target="main">Login/Create Account</a></li>
+    <li><a href="contact.html" target="main">Contact Us</a></li>
+  
+
 
 </body>
 </html>
