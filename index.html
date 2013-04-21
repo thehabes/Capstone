@@ -2,40 +2,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Homology Website</title>
-<link href="testheader.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="simpleheaderstyle.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 
+<body>
+
 <body bgcolor="gray">
+<img src="banner.jpg" width="458" height="172" alt="banner">
 
 
-<div class="wrapper">
-<div class="container"><ul class="menu" rel="sam1">
-<li class="active"><a href="index.html">Home</a></li>
+<div id="navcontainer">
+  <ul>
+	<li><a href="home.html" target="main">Home</a></li>
     <li><a href="about.html" target="main">About Homology</a></li>
-	<li><a href="forum.html" target="main">Homology Forum</a></li>
+	<li><a href="http://localhost:8888/phpBB3" target="main">Homology Forum</a></li>
 	<li><a href="osteology.html" target="main">Osteology</a></li>
 	<li><a href="myology.html" target="main">Myology</a></li>
     <li><a href="dna.html" target="main">DNA</a></li>
     <li><a href="proteins.html" target="main">Proteins</a></li>
-    <li><a href="login.html" target="main">Login/Create Account</a></li>
+    <li><a href="phpBB3/ucp.php" target="main">Login/Create Account</a></li>
     <li><a href="contact.html" target="main">Contact Us</a></li>
     <li><a href="#">
           <input type="text" name="q" size="20" />
           <input type="submit" value="Search"/>
           <input type="hidden" name="q1" value="site:YOUR DOMAIN NAME GOES HERE"/>
-    </a>
+    </a></li>
 </ul>
 </div>
-</div>
-  
 
 
 <div id="centerpage">
 
 <iframe name="main" 
 	src="home.html" 
-    iframe width="80%"
-	scrolling="yes" 
+    iframe width="100%"
+	scrolling="no"
+    height="1500" 
 	frameborder="0">
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -44,18 +46,10 @@
 
 
 
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-<div class="wrapper">
-<div class="container"><ul class="menu" rel="sam1">
-<li class="active"><a href="index.html">Developers</a></li>
+<div id="navcontainer">
+<div style="position: fixed; bottom: 0; width: 100%;">
+<ul>
+	<li><a href="index.html">Developers</a></li>
 	<li><a href="#">
           <input type="text" name="q" size="20" />
           <input type="submit" value="Taxon Search"/>
@@ -66,7 +60,7 @@
           <input type="submit" value="Feature Search"/>
           <input type="hidden" name="q1" value="site:YOUR DOMAIN NAME GOES HERE"/>
     	</a></li>
-    <li><a href="login.html" target="main">Login/Create Account</a></li>
+    <li><a href="admin.html" target="main">Administrator</a></li>
     <li><a href="contact.html" target="main">Contact Us</a></li>
 </ul>
 </div>
@@ -75,4 +69,3 @@
 
 </body>
 </html>
-

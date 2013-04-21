@@ -1,0 +1,5 @@
+AuthType Basic 
+AuthName "Site Description" 
+AuthBasicProvider file 
+AuthUserFile /Applications/MAMP/htdocs/admin/userlist.txt 
+Require valid-user
