@@ -3,21 +3,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Homology Website</title>
 <link href="simpleheaderstyle.css" rel="stylesheet" type="text/css" media="screen" />
-
-
-<!-- Start visualslideshow.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine/css/slideshow.css" media="screen" /> 
-<style type="text/css">.slideshow a#vlb{display:none}</style> 
-<script type="text/javascript" src="engine/js/mootools.js"></script> 
-<script type="text/javascript" src="engine/js/visualslideshow.js"></script> 
-<!-- End visualslideshow.com HEAD section -->
-
 </head>
 
 <body>
 
 <body bgcolor="gray">
-<img src="banner.jpg" width="658" height="172" alt="banner">
+<img src="banner.jpg" width="458" height="172" alt="banner">
 
 
 <div id="navcontainer">
@@ -58,11 +49,7 @@
 <div id="navcontainer">
 <div style="position: fixed; bottom: 0; width: 100%;">
 <ul>
-	
-
-
-
-<li><a href="index.html">Developers</a></li>
+	<li><a href="index.html">Developers</a></li>
 	<li><a href="#">
           <input type="text" name="q" size="20" />
           <input type="submit" value="Taxon Search"/>
