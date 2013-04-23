@@ -18,39 +18,67 @@ if (mysqli_connect_errno())
   
 $prevbone='Ascending wings';  
 
-$result = mysqli_query($con,"SELECT * FROM fishbones WHERE bone LIKE '%$prevbone%'");
+$result = mysqli_query($con,"SELECT DISTINCT forder FROM fishbones WHERE bone LIKE '%$prevbone%'");
 
 
 while($row = mysqli_fetch_array($result))
   {
-	  $id=$row["id"];
-	  $thing="<a href='bonefgsopage.php' target='main'>" . $row['family'] . "</a>"; 
-      $options.="<OPTION VALUE=\"$id\">".$thing.'</option>';
+      $options.="<OPTION VALUE=\"$id\">". $row['forder'] .'</option>';
   }
 ?> 
 
 
 <SELECT NAME=id> 
-<OPTION VALUE=0>Family 
+<OPTION VALUE=0>Order
 <?=$options?> 
 </SELECT> 
 
 <?php
-$result = mysqli_query($con,"SELECT * FROM fishbones WHERE bone LIKE '%$prevbone%'");
+$result = mysqli_query($con,"SELECT DISTINCT family FROM fishbones WHERE bone LIKE '%$prevbone%'");
 
 
 while($row = mysqli_fetch_array($result))
   {
-	  $id=$row["genus"];
-	  $thing="<a href='bonefgsopage.php' target='main'>" . $row['genus'] . "</a>"; 
-      $options.="<OPTION VALUE=\"$id\">".$thing.'</option>';
+      $options1.="<OPTION VALUE=\"$id\">". $row['family'] .'</option>';
+  }
+?> 
+
+
+<SELECT NAME=genus> 
+<OPTION VALUE=0>Family
+<?=$options1?> 
+</SELECT> 
+
+<?php
+$result = mysqli_query($con,"SELECT DISTINCT genus FROM fishbones WHERE bone LIKE '%$prevbone%'");
+
+
+while($row = mysqli_fetch_array($result))
+  { 
+      $options2.="<OPTION VALUE=\"$id\">". $row['genus'] .'</option>';
   }
 ?> 
 
 
 <SELECT NAME=genus> 
 <OPTION VALUE=0>Genus
-<?=$options?> 
+<?=$options2?> 
+</SELECT> 
+
+<?php
+$result = mysqli_query($con,"SELECT DISTINCT species FROM fishbones WHERE bone LIKE '%$prevbone%'");
+
+
+while($row = mysqli_fetch_array($result))
+  { 
+      $options3.="<OPTION VALUE=\"$id\">". $row['species'] .'</option>';
+  }
+?> 
+
+
+<SELECT NAME=genus> 
+<OPTION VALUE=0>Species
+<?=$options3?> 
 </SELECT> 
 
 

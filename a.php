@@ -18,7 +18,8 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con,"SELECT * FROM fishbones WHERE bone LIKE 'a%'");
+$result = mysqli_query($con,"SELECT DISTINCT bone FROM fishbones WHERE bone LIKE 'a%'");
+
 
 
 while($row = mysqli_fetch_array($result))

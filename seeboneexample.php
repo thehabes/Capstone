@@ -12,13 +12,17 @@
 <p>Vertebrata -> Osteichthys -> Actinoptreygii -> <b>Cbbdgddd</b></p>
 
 
-<p><img src="../fishvert.jpg" width="218" height="192">
-  <img src="../fishvert.jpg" width="218" height="192"></p>
+<p><img src="fishvert.jpg" width="320" height="240">
+<video width="320" height="240" controls>
+  <source src="video/fish.mp4" type="video/mp4">
+</video></p>
+
 
 <p>&nbsp;</p>
 <p>Species: Vertebrata
 Comment: my picture</p>
 <p><img src="../fishvert2.jpeg" width="155" height="127" alt="Vertebrata"></p>
+
 
  
 <form action="upload_img.php" method="post"
