@@ -45,12 +45,8 @@ function finishAjax_tier_four(id, response) {
 <body>
 <body bgcolor="gray">
 
-<a href="seeboneexample.php" target="main">continue</a>
-
- 
-
 <p>
-<form action="" method="get">
+<form action="seeboneexample.php" method="post">
   
     <select name="drop_1" id="drop_1">
     
@@ -72,17 +68,21 @@ function finishAjax_tier_four(id, response) {
     <img alt="Please Wait" src="ajax-loader.gif"/>
     </span>
     <span id="result_3" style="display: none;"></span> 
-  
+  	
 </form>
+
 </p>
-<p>
-<?php if(isset($_POST['submit'])){
-	$drop = $_POST['drop_1'];
-	$drop_2 = $_POST['drop_2'];
-	$drop_3 = $_POST['drop_3'];
-	$drop_4 = $_POST['drop_4'];
-	echo "You selected a ";
-	echo $drop_3." ".$drop." ".$drop_2." ".$drop_4;
+<?php session_start();
+  $_SESSION['bone'] = $_POST['bone'];
+  $_SESSION['order'] = $_POST['drop_1'];
+  $_SESSION['family'] = $_POST['drop_2'];
+  $_SESSION['genus']= $_POST['drop_3'];
+  $_SESSION['species'] = $_POST['drop_4'];
+
+?>
+</body>
+</html>
+rop_2." ".$drop_4;
 }
 ?>
 </body>

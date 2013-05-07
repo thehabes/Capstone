@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+$("#first-choice").change(function() {
+	$("#second-choice").load("getter.php?choice=" + $("#first-choice").val());
+});
+</head>
+
+<body>
+
+<?php
+$con=mysqli_connect("localhost","root","root","dd_vals");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }  
+
+$result = mysqli_query($con,"SELECT DISTINCT category FROM dd_vals");
+
+
+while($row = mysqli_fetch_array($result))
+  {
+      $options.="<OPTION VALUE=\"$id\">". $row['category'] .'</option>';
+  }
+?> 
+
+
+<SELECT NAME=id> 
+<OPTION VALUE=0>Category
+<?=$options?> 
+</SELECT> 
+
+<?php
+$con=mysqli_connect("localhost","root","root","dd_vals");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  } 
+
+
+$result = mysqli_query($con,"SELECT DISTINCT dd_vals FROM dd_vals");
+
+
+while($row = mysqli_fetch_array($result))
+  {
+      $options.="<OPTION VALUE=\"$id\">". $row['dd_vals'] .'</option>';
+  }
+?> 
+
+
+<SELECT NAME=id> 
+<OPTION VALUE=0>Beverage
+<?=$options?> 
+</SELECT> 
+
+</body>
+</html>

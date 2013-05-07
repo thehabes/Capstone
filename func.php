@@ -1,5 +1,4 @@
 <?php
-$order = 0;
 //**************************************
 //     Page load dropdown results     //
 //**************************************
@@ -17,18 +16,15 @@ function getTierOne()
 }
 
 //**************************************
-//     First selection results     //
+//     First selection results        //
 //**************************************
 if($_GET['func'] == "drop_1" && isset($_GET['func'])) { 
    drop_1($_GET['drop_var']);
-   global $order;
-   $order = $_GET['drop_var']; 
 }
 
 
-function drop_1($drop_var, $order)
+function drop_1($drop_var)
 {  	
-	echo $order;
     include_once('db.php');
 	$result = mysql_query("SELECT DISTINCT family FROM fishbones WHERE forder='$drop_var' AND bone LIKE '%".$_POST['bone']."%'") 
 	or die(mysql_error());
@@ -65,15 +61,12 @@ $('#wait_2').hide();
 //**************************************
 if($_GET['func'] == "drop_2" && isset($_GET['func'])) { 
    drop_2($_GET['drop_var']);
-   $family = $_GET['drop_var']; 
-   global $order;
-   echo $order; 
 }
 
 function drop_2($drop_var)
 {  
     include_once('db.php');
-	$result = mysql_query("SELECT DISTINCT genus FROM fishbones WHERE family='$drop_var' AND bone LIKE '%".$_POST['bone']."%' AND forder='$order'") or die(mysql_error());
+	$result = mysql_query("SELECT DISTINCT genus FROM fishbones WHERE family='$drop_var' AND bone LIKE '%".$_POST['bone']."%'") or die(mysql_error());
 	
 	echo '<select name="drop_3" id="drop_3">
 	      <option value=" " disabled="disabled" selected="selected">Genus</option>';
@@ -106,17 +99,28 @@ $('#wait_3').hide();
 //**************************************
 if($_GET['func'] == "drop_3" && isset($_GET['func'])) { 
    drop_3($_GET['drop_var']); 
-   $genus = $_GET['drop_var']; 
 }
 
 function drop_3($drop_var)
 {  
     include_once('db.php');
-	$result = mysql_query("SELECT DISTINCT species FROM fishbones WHERE genus='$drop_var' AND bone LIKE '%".$_POST['bone']."%' AND forder='$order' AND family='$family'") 
+	$result = mysql_query("SELECT DISTINCT species FROM fishbones WHERE genus='$drop_var' AND bone LIKE '%".$_POST['bone']."%'") 
 	or die(mysql_error());
 	
 	echo '<select name="drop_4" id="drop_4">
 	      <option value=" " disabled="disabled" selected="selected">Species</option>';
+
+		   while($drop_4 = mysql_fetch_array( $result )) 
+			{
+			  echo '<option value="'.$drop_4['species'].'">'.$drop_4['species'].'</option>';
+			}
+	
+	echo '</select>';
+    echo '<input type="submit" name="submit" value="Submit" />';
+	
+}
+?>
+;
 
 		   while($drop_4 = mysql_fetch_array( $result )) 
 			{

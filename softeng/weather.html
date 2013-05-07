@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Weather</title>
+</head>
+
+<style>
+.center
+{
+	width:35%;
+}
+body
+{
+	background-color:black;
+	color:red;
+}
+</style>
+
+<body>
+
+
+<form method="get" action="http://www.weather.com/search/search" enctype="application/x-www-form-urlencoded" target = "main">  
+  <div>
+    <input type="text"  name="where" size="40" placeholder="Search Zip, City, or Place..."/>  
+    <br/>  
+    <input type="submit"  name="submit"  value="Get Forecast" /> </div>  
+</form>  
+
+</body>
+</html>

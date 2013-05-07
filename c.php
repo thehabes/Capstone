@@ -21,17 +21,26 @@ if (mysqli_connect_errno())
 $result = mysqli_query($con,"SELECT DISTINCT bone FROM fishbones WHERE bone LIKE 'c%'");
 
 
+
 while($row = mysqli_fetch_array($result))
   {
-  echo "<li>" . "<a href='bonefgsopage.php' target='main'>" . $row['bone'] . "</a>" . "</li>";
+      $options.="<OPTION VALUE=\"$id\">". $row['bone'] .'</option>';
   }
-
-
-
-mysqli_close($con);
-?>
-
-
+  
+mysqli_close($con);  
+?> 
+<p>
+<form action="" target="main" method="post">
+	<select name="bonename" id="bonename">
+    	<option value="" selected="selected" disabled="disabled">Bone Name</option>
+    	<?=$options?> 
+    </select>
+</form>
+    
+<form action="bonefgsopage.php" method="post" target="main">
+	<input type="submit" value="Continue">
+</form>
+</p>
 
 
 </body>

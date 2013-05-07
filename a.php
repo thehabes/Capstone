@@ -9,7 +9,6 @@
 
 <body bgcolor="gray">
 
-
 <?php
 $con=mysqli_connect("localhost","root","root","Homology");
 // Check connection
@@ -39,10 +38,6 @@ while($row = mysqli_fetch_array($result))
 </form>
 
 
-
-    
-
-
-
 </body>
+</html>y>
 </html>
