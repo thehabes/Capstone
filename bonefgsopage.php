@@ -1,87 +1,89 @@
+<?php 
+  include('db.php');
+  include('func.php');
+?>
 <html>
 <head>
 <link href="styles.css" rel="stylesheet" type="text/css" media="screen">
 <title>Homology Website</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#wait_1').hide();
+	$('#drop_1').change(function(){
+	  $('#wait_1').show();
+	  $('#result_1').hide();
+      $.get("func.php", {
+		func: "drop_1",
+		drop_var: $('#drop_1').val()
+      }, function(response){
+        $('#result_1').fadeOut();
+        setTimeout("finishAjax('result_1', '"+escape(response)+"')", 400);
+      });
+    	return false;
+	});
+});
+
+function finishAjax(id, response) {
+  $('#wait_1').hide();
+  $('#'+id).html(unescape(response));
+  $('#'+id).fadeIn();
+}
+function finishAjax_tier_three(id, response) {
+  $('#wait_2').hide();
+  $('#'+id).html(unescape(response));
+  $('#'+id).fadeIn();
+}
+function finishAjax_tier_four(id, response) {
+  $('#wait_3').hide();
+  $('#'+id).html(unescape(response));
+  $('#'+id).fadeIn();
+}
+</script>
 </head>
 <body>
 <body bgcolor="gray">
 
 <a href="seeboneexample.php" target="main">continue</a>
 
-<?php
-$con=mysqli_connect("localhost","root","root","Homology");
-// Check connection
-if (mysqli_connect_errno())
-  {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  }
+ 
+
+<p>
+<form action="" method="get">
   
-$prevbone='Ascending wings';  
-
-$result = mysqli_query($con,"SELECT DISTINCT forder FROM fishbones WHERE bone LIKE '%$prevbone%'");
-
-
-while($row = mysqli_fetch_array($result))
-  {
-      $options.="<OPTION VALUE=\"$id\">". $row['forder'] .'</option>';
-  }
-?> 
-
-
-<SELECT NAME=id> 
-<OPTION VALUE=0>Order
-<?=$options?> 
-</SELECT> 
-
-<?php
-$result = mysqli_query($con,"SELECT DISTINCT family FROM fishbones WHERE bone LIKE '%$prevbone%'");
-
-
-while($row = mysqli_fetch_array($result))
-  {
-      $options1.="<OPTION VALUE=\"$id\">". $row['family'] .'</option>';
-  }
-?> 
-
-
-<SELECT NAME=genus> 
-<OPTION VALUE=0>Family
-<?=$options1?> 
-</SELECT> 
-
-<?php
-$result = mysqli_query($con,"SELECT DISTINCT genus FROM fishbones WHERE bone LIKE '%$prevbone%'");
-
-
-while($row = mysqli_fetch_array($result))
-  { 
-      $options2.="<OPTION VALUE=\"$id\">". $row['genus'] .'</option>';
-  }
-?> 
-
-
-<SELECT NAME=genus> 
-<OPTION VALUE=0>Genus
-<?=$options2?> 
-</SELECT> 
-
-<?php
-$result = mysqli_query($con,"SELECT DISTINCT species FROM fishbones WHERE bone LIKE '%$prevbone%'");
-
-
-while($row = mysqli_fetch_array($result))
-  { 
-      $options3.="<OPTION VALUE=\"$id\">". $row['species'] .'</option>';
-  }
-?> 
-
-
-<SELECT NAME=genus> 
-<OPTION VALUE=0>Species
-<?=$options3?> 
-</SELECT> 
-
-
-
+    <select name="drop_1" id="drop_1">
+    
+      <option value="" selected="selected" disabled="disabled">Order</option>
+      
+      <?php getTierOne($_POST['bone']); ?>
+    
+    </select> 
+    
+    <span id="wait_1" style="display: none;">
+    <img alt="Please Wait" src="ajax-loader.gif"/>
+    </span>
+    <span id="result_1" style="display: none;"></span>
+    <span id="wait_2" style="display: none;">
+    <img alt="Please Wait" src="ajax-loader.gif"/>
+    </span>
+    <span id="result_2" style="display: none;"></span> 
+    <span id="wait_3" style="display: none;">
+    <img alt="Please Wait" src="ajax-loader.gif"/>
+    </span>
+    <span id="result_3" style="display: none;"></span> 
+  
+</form>
+</p>
+<p>
+<?php if(isset($_POST['submit'])){
+	$drop = $_POST['drop_1'];
+	$drop_2 = $_POST['drop_2'];
+	$drop_3 = $_POST['drop_3'];
+	$drop_4 = $_POST['drop_4'];
+	echo "You selected a ";
+	echo $drop_3." ".$drop." ".$drop_2." ".$drop_4;
+}
+?>
 </body>
 </html>
